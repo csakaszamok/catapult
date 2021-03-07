@@ -127,7 +127,7 @@ release_v0.0.1
 
 Execute your script:
 ```bash
-ansible-playbook -i inventories/dev1 site.yml --extra-vars "release_folder=/home/my-payloads/release_v0.0.1" 
+ansible-playbook -i inventories/dev1 site.yml --extra-vars "release_folder=payloads/release_v0.0.1" 
 ```
 ## Payload example 2: events, manage services
 
@@ -174,7 +174,7 @@ tasks' main.yml:
 ```
 Execute your script:
 ```bash
-ansible-playbook -i inventories/dev1 site.yml --extra-vars "release_folder=/home/my-payloads/release_v0.0.2" 
+ansible-playbook -i inventories/dev1 site.yml --extra-vars "release_folder=payloads/release_v0.0.2" 
 ```
 
 ## TODOs 
