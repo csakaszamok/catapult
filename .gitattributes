@@ -1,4 +1,6 @@
 example/* linguist-vendored
+*.yml linguist-detectable
+
 # Basic .gitattributes for a python repo.
 
 # Source files
