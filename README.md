@@ -15,6 +15,9 @@
 Catapult is an open source deployment tool and package format for ansible.  
 You can easily separate your depoyment logic and your release packages.
 
+# Why catapult?
+According to wikipedia, catapult is a tool to delivery packages to remote places, thus it can be ideal tool for deploying.
+
 # Install
 It's easy, just install capatult role under your roles folder.
 ```bash
