@@ -2,7 +2,7 @@
 - name: send singal
   debug:
     msg: "fire before_copy_files.. {{ group_name }}"
-  changed_when: True    
+  changed_when: True
   ignore_errors: yes
   notify:
     - "{{ group_name }}_on_before_copy_files"

@@ -4,14 +4,16 @@
 #     msg: "services started.. {{ group_names }}"
 
 # check fs directory is exists
-- name: "check stat role"
-  local_action: stat path="{{ release_folder }}/{{ item_name }}"
+- name: check role
+  stat:
+    path: "{{ release_folder }}/{{ item_name }}"
   delegate_to: localhost
   register: catapult_check_role
 
 #check handler is exitsts
-- name: "check stat role handler"
-  local_action: stat path="{{ release_folder }}/{{ item_name }}/handlers/main.yml"
+- name: check handler
+  stat:
+    path: "{{ release_folder }}/{{ item_name }}/handlers/main.yml"
   delegate_to: localhost
   register: catapult_check_role_handler
 
@@ -33,7 +35,8 @@
 
 # check fs directory is exists
 - name: "check stat"
-  local_action: stat path="{{ release_folder }}/{{ item_name }}/files/"
+  stat:
+    path: "{{ release_folder }}/{{ item_name }}/files/"
   delegate_to: localhost
   register: catapult_check_fs
 
@@ -43,8 +46,8 @@
     src: "{{ release_folder }}/{{ item_name }}/files/"
     dest: /
     backup: yes
-  register: copy_file  
-  when: catapult_check_fs.stat.exists is defined and catapult_check_fs.stat.exists  
+  register: copy_file
+  when: catapult_check_fs.stat.exists is defined and catapult_check_fs.stat.exists
 
 # before_fs in release_folder
 - name: "after_fs in release_folder"
