@@ -1,0 +1,54 @@
+---
+# - name: start services
+#   debug:
+#     msg: "services started.. {{ group_names }}"
+
+# check fs directory is exists
+- name: "check stat role"
+  local_action: stat path="{{ release_folder }}/{{ item_name }}"
+  delegate_to: localhost
+  register: catapult_check_role
+
+#check handler is exitsts
+- name: "check stat role handler"
+  local_action: stat path="{{ release_folder }}/{{ item_name }}/handlers/main.yml"
+  delegate_to: localhost
+  register: catapult_check_role_handler
+
+#load role if exists
+- name: load role if exists
+  include_tasks: load_role.yml
+  when: catapult_check_role.stat.exists is defined and catapult_check_role.stat.exists
+
+# before_fs in release_folder
+- name: "before_fs in release_folder"
+  include_tasks: before_fs_release_folder.yml
+  vars:
+    group_name: "{{ item_name }}"
+  when: catapult_check_role_handler.stat.exists is defined and catapult_check_role_handler.stat.exists
+
+#activate handlers
+- name: force running of all notified handlers now
+  meta: flush_handlers
+
+# check fs directory is exists
+- name: "check stat"
+  local_action: stat path="{{ release_folder }}/{{ item_name }}/files/"
+  delegate_to: localhost
+  register: catapult_check_fs
+
+# copy files
+- name: "copy all the files"
+  ansible.builtin.copy:
+    src: "{{ release_folder }}/{{ item_name }}/files/"
+    dest: /
+    backup: yes
+  register: copy_file  
+  when: catapult_check_fs.stat.exists is defined and catapult_check_fs.stat.exists  
+
+# before_fs in release_folder
+- name: "after_fs in release_folder"
+  include_tasks: after_fs_release_folder.yml
+  vars:
+    group_name: "{{ item_name }}"
+  when: catapult_check_role_handler.stat.exists is defined and catapult_check_role_handler.stat.exists

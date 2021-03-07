@@ -1,0 +1,6 @@
+---
+- name: load roles
+  import_role:
+    name: "{{ release_folder }}/{{ item_name }}"
+  
+

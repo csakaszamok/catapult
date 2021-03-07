@@ -1,0 +1,13 @@
+---
+# handlers file for catapult
+- name: __internal_on_before_copy_files
+  no_log: true
+  debug:
+    msg: __internal_on_before_copy_files
+  listen: on_before_copy_files
+
+- name: __internal_on_after_copy_files
+  no_log: true
+  debug:
+    msg: __internal_on_after_copy_files
+  listen: on_after_copy_files

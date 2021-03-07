@@ -1,0 +1,10 @@
+---  
+  - name: deploy
+    hosts: all            
+    gather_facts: false
+    tasks:       
+    - include_role:
+        name: ../../../catapult
+      vars:
+        - autostart: true        
+      when: release_folder and inventory_name

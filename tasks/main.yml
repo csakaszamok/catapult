@@ -1,0 +1,14 @@
+---
+- name: parameters
+  debug:
+    msg: "Environment : {{ inventory_name }} Release folder : {{ release_folder }}"
+
+- name: confirmation
+  no_log: true
+  include_tasks: confirmation.yml
+  when: (autostart is undefined) or (not autostart|bool)
+
+- include: process.yml
+  vars:
+    item_name: "{{ item }}"
+  with_items: "{{ group_names }}"

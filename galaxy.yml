@@ -1,0 +1,19 @@
+---
+namespace: csakaszamok
+name: catapult
+version: 0.2.0
+readme: README.md
+description: deployer tool and format
+authors:
+  - csakaszamok  
+license:
+  - AGPL-3.0
+tags:
+  - deployment
+  - deployer
+  - release
+  - package
+  - catapult
+repository: "https://github.com/csakaszamok/catapult"
+homepage: "https://github.com/csakaszamok/catapult"
+issues: "https://github.com/csakaszamok/catapult/issues"

@@ -1,0 +1,10 @@
+---
+- name: "{{ role_name|basename }}_on_before_copy_files"
+  service:
+      name: nginx
+      state: stopped
+
+- name: "{{ role_name|basename }}_on_after_copy_files"
+  service:
+      name: nginx
+      state: started

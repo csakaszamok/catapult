@@ -1,0 +1,22 @@
+---
+- name: Confirmation
+  pause:
+    prompt: |
+      ****************************************
+      Target environment      : {{ inventory_name }}
+      Catapult release folder : {{ release_folder }}
+      ****************************************
+      Ansible-playbook        : {{ playbook_dir }}
+      ****************************************
+      Start deploy ([y]es/no) (defualt: no)?
+    echo: yes
+  register: prompt_input
+
+- name: Confirmation false
+  debug:
+    msg: "User abort"
+  failed_when: prompt_input.user_input|lower != "yes" and prompt_input.user_input|lower != "y"
+
+# - name: Confirmation false
+#   meta: end_play
+#   when: prompt_input.user_input|lower != "yes" and prompt_input.user_input|lower != "y"

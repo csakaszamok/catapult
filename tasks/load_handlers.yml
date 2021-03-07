@@ -1,0 +1,8 @@
+---
+# - name: "check stat"
+#   local_action: stat path="{{ release_folder }}inventory.{{ item_name }}/handlers/main.yml"
+#   delegate_to: localhost
+#   register: p
+# - name: "stop (if exists)"
+#   include_tasks: "{{ release_folder }}inventory.{{ item_name }}/handlers/main.yml"  
+#   when: p.stat.exists is defined and p.stat.exists
