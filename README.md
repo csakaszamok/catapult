@@ -1,7 +1,7 @@
 > ## 🛠 Status: In Development
 > Catapult is currently in development. This package is still being developed and is not yet production ready. There are things that haven't been finalized yet, so this repo might change before it's ready for production. Check out the list of Known Issues and TODOs for updates.
 # Catapult
-[![version](https://img.shields.io/badge/version-0.2.0-g.svg)](https://semver.org)  
+[![version](https://img.shields.io/badge/version-0.3.0-g.svg)](https://semver.org)  
 <img src="csakaszamok-catapult_300x300.svg" width="100">
 <p>
   <a href="https://github.com/csakaszamok/catapult/releases">Download</a> ·
@@ -178,7 +178,7 @@ ansible-playbook -i inventories/dev1 site.yml --extra-vars "release_folder=paylo
 ```
 
 ## TODOs 
-- [ ] Precise shot
+- [x] Precise shot (scheduling)
 - [ ] Parallel launch
 - [ ] Safe projectile
 - [ ] Fire ball
