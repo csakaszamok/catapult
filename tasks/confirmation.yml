@@ -7,15 +7,23 @@
       Catapult release folder : {{ release_folder }}
       ****************************************
       Ansible-playbook        : {{ playbook_dir }}
+      ****************************************      
+      Scheduling      
+      - For start now just press [Enter]
+      - Or type the closest time in military format:
+        ex.: 2310
       ****************************************
-      Start deploy ([y]es/no) (defualt: no)?
     echo: yes
   register: prompt_input
 
-- name: Confirmation false
-  debug:
-    msg: "User abort"
-  failed_when: prompt_input.user_input|lower != "yes" and prompt_input.user_input|lower != "y"
+- name: schedule_setting_process
+  wait_for_time:
+    catapult_start_time: "{{prompt_input.user_input|lower}}"
+
+# - name: Confirmation false
+#   debug:
+#     msg: "User abort"
+#   failed_when: prompt_input.user_input|lower != "yes" and prompt_input.user_input|lower != "y"
 
 # - name: Confirmation false
 #   meta: end_play

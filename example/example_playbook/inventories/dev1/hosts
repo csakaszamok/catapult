@@ -6,6 +6,6 @@ inventory_name=dev1
 local1 ansible_host=127.0.0.1  ansible_user=root ansible_ssh_pass=root ansible_port=1121
 
 ; ! payloads will use groupnames like this to identify foldernames under payloads !
-[anotherservers] 
-local2 ansible_host=127.0.0.1  ansible_user=root ansible_ssh_pass=root ansible_port=1122
-local3 ansible_host=127.0.0.1  ansible_user=root ansible_ssh_pass=root ansible_port=1123
+;[anotherservers] 
+;local2 ansible_host=127.0.0.1  ansible_user=root ansible_ssh_pass=root ansible_port=1122
+;local3 ansible_host=127.0.0.1  ansible_user=root ansible_ssh_pass=root ansible_port=1123
